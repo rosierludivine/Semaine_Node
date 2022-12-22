@@ -76,14 +76,15 @@
 //   }
 //   console.log('fichier créer') 
 
-// })// Pas compris ce programme 
+// })
+// S'il ne trouve pas le fichier alors il le créer 
 
 // Écrivez un programme Node.js qui utilise le module os pour obtenir le répertoire personnel de l'utilisateur actuel.
 // const fs = require('fs');//module fs
 // const os = require('os');//modume os 
 
 // console.log(os.homedir());
-// fs.readdir((os.homedir()), (err, files) => {// Creation de la fonction readdir prenant le chemin du repertoire personnel de l'utilisateur actuel grâce au os
+// fs.readdir((os.homedir()), (err, files) => { // Creation de la fonction readdir prenant le chemin du repertoire personnel de l'utilisateur actuel grâce au os
 //         if (err)//Si erreur 
 //           console.log(err);// afficher err
 //         else {// sinon
