@@ -2,8 +2,8 @@
 const xTopBorder ="_";
 const xdownBorder ="-";
 const yBorder ="|";
-const carte =[0,1,2,3];
-const cartePaire =[0,1,2,3];
+const carte =[2,3,4,5,6,7,8,9,10,'V','D','R','AS'];
+const cartePaire =[2,3,4,5,6,7,8,9,10,'V','D','R','AS'];
 
 // Mélanger les cartes 
 function getRandomInt(max) {
@@ -12,13 +12,10 @@ function getRandomInt(max) {
 let nombre = getRandomInt(carte.length );// enlever 1 de l'index vu que le premier est 0 
 let nombreCarte =nombre;// Afficher les valeurs du tableau carte 
 
-//Création de la carte  
 const square = (`
  ${xTopBorder}
 ${yBorder}${nombreCarte}${yBorder}
  ${xdownBorder}`);
-
-array = 
 
 
 console.log(square);
