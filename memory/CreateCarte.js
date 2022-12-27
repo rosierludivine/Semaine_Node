@@ -12,8 +12,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * (max - min)) + min;//retourne une valeur random avec min inclu et max exclus 
 }
 let nombre = getRandomInt(carte.length );// enlever 1 de l'index vu que le premier est 0 
-let tableauNombre = [];
-let newValue = 0; 
+let newValue = []; 
 
 // FIN DU MELANGE //
 
@@ -21,20 +20,31 @@ let newValue = 0;
 // Pour i < carte.length 
 // si NewValue !== nombre alors 
 for (i =0 ; i < carte.length;) {
-    if (newValue !== nombre ){
-         tableauNombre.push(newValue);
-          newValue = newValue + nombre ; 
+    
+    if (newValue.includes(nombre) === false){
+          newValue.push(nombre) ; 
          console.log(newValue);
+         newValue.push(newValue);
         i++;
         return newValue ; 
     }else {
-        carte.splice(newValue);
+        carte.splice(carte);
     }
-    return newValue; 
+    return newValue.toString; 
 }
 
-console.log(newValue);
-console.log(nombre);
+console.log(newValue.toString);
+
+  /// création du tableau 
+  tableauModifier();{
+    this.memoryPage = `${this.Affichage(this.newValue[0])} | ${this.Affichage(this.newValue[1])} | ${this.Affichage(this.newValue[2])} | ${this.Affichage(this.newValue[3])}
+---------
+${this.Affichage(this.newValue[4])} | ${this.Affichage(this.newValue[5])} | ${this.Affichage(this.newValue[6])} | ${this.Affichage(this.newValue[7])}`;
+}//Chaque ligne correspond a une ligne du tableau 
+
+console.log(memoryPage);
+
+
 // const readline = require('node:readline');
 // const { stdin: input, stdout: output } = require('node:process');
 // const { Console, clear } = require('node:console');
