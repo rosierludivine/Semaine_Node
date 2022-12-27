@@ -40,9 +40,19 @@ class morpion { // Creation d'un class
               this.mouvement(parseInt(input))//ce que la personne a ecrit 
               // continuer a jouer
             } else {
-              console.log("Game Ended!");
+              console.log("Fin de la partie!");
               this.processGame();// processus de la parti comment le joueur peut gagner 
             }
         })
+    }
+
+    //Fin du jeu 
+    finJeu(){
+        this.rl.close();// fermer la discution
+        this.finJeu = true;// la Fin du jeu est vrari 
+        console.log("Moves history --- ")
+        console.log(this.Deplacement)
+        process.exit();// quitter la page 
+        return false; 
     }
 }
