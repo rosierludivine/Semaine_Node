@@ -121,6 +121,67 @@ class morpion { // Creation d'un class
       checkSet.clear();// effacer le tableau 
     }
   }
+  mouvement(position){
+    var self = this
+    // check if poosition is eligible
+    if((position > 9) || position < 1){
+      // wrong position
+      self.mouvementErreur("Wrong position!!! ");
+    }
+    // check if position is occupied
+    if(self.tabMorpion[(position - 1)] !== undefined){
+      console.log(self.tabMorpion[(position - 1)])
+      // position occupied
+      self.mouvementErreur("Position Occupied!!! ");
+    } else {
+      // register move
+      self.tabMorpion[(position - 1)] = self.caractere(self.joueur);
+      // record move
+      self.mouvementDeplacement((position - 1), self.joueur);
+      // continue playing
+      self.continuerJouer();
+    }
+  }
+
+  // notify wrong moves
+  mouvementErreur(message){
+    console.log(`${arguments[0] ? arguments[0]:''}Player ${this.joueur(this.joueur)}, Your move! (position[1-9]): `)
+  }
+
+  mouvementDeplacement(position, player){
+    this.Deplacement.push({
+      position: position,
+      char: this.caractere(this.joueur),
+      player: this.joueur(this.joueur)
+    });
+  }
+
+  dernierMouvement(){
+    // delete character
+    if(this.Deplacement.length > 1){
+      var pos = this.Deplacement[(this.Deplacement.length - 1)].position
+      this.tabMorpion[pos] = ' '
+      // unregister move 
+      this.Deplacement.pop();
+      // continue play
+      this.continuerJouer()
+    } else {
+      console.log("Can't delete any more moves!!");
+      // continue play
+      this.continuerJouer(true); // don't change player with the next move
+    }
+  }
+
+  processInput(moveContents){
+    var mc = new Set(moveContents);
+    this.mouvementDeplacement(mc[0], mc[1], joueur);
+  }
 
 }
+
+var game = new tabMorpion();
+
+game.lancement();
+
+
 
