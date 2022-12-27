@@ -1,28 +1,44 @@
-const readline = require('node:readline');
-const { stdin: input, stdout: output } = require('node:process');
-const { Console, clear } = require('node:console');
+// const readline = require('node:readline');
+// const { stdin: input, stdout: output } = require('node:process');
+// const { Console, clear } = require('node:console');
 
-console.log("Welcome to the memory game");
-//Creation de la interaction 
-const rl = readline.createInterface({ input, output });
+// console.log("Welcome to the memory game");
+// //Creation de la interaction 
+// const rl = readline.createInterface({ input, output });
   
-//Poser la question
-rl.question('What level do you want( Easy ,Medium ,Hard ) ', (level) => {
-  //Faire la reponse
-  console.log(`Your level is  ${level}`);
-    //fermeture de la partie écriture dans la console
-   rl.close();
-    // Afficher les regles
-    //
-    //
+// //Poser la question
+// rl.question('What level do you want( Easy ,Medium ,Hard ) ', (level) => {
+//   //Faire la reponse
+//   console.log(`Your level is  ${level}`);
+//     //fermeture de la partie écriture dans la console
+//    rl.close();
+//     // Afficher les regles
+//     //
+//     //
 
-   //Ecriture Bonne chance
-  console.log('Good luck !')
+//    //Ecriture Bonne chance
+//   console.log('Good luck !')
 
-  //Gestion du temps pour 
-    setTimeout(() => {  
-    clear();
-    }, "5000") 
+//   //Gestion du temps pour 
+//     setTimeout(() => {  
+//     clear();
+//     }, "5000") 
 
 
-});
+// });
+
+// Mélanger les cartes 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);// genérer l'index 
+}
+let nombre ='';
+let nombreCarte='';
+let sequence = [1, 2, 3, 4];
+for (var i = 0; i < sequence.length; i++) {
+  getRandomInt(sequence);
+  nombre = getRandomInt(sequence.length );// enlever 1 de l'index vu que le premier est 0 
+  nombreCarte =nombre;// Afficher les valeurs du tableau carte 
+  return nombreCarte; 
+  
+}
+console.log(nombreCarte);
