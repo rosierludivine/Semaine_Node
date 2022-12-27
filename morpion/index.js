@@ -66,7 +66,61 @@ class morpion { // Creation d'un class
       console.log(`Jouer ${this.joueur(this.joueur)},(position[1-9]): `)
     }
   }
-
+  // fonction qui prend en compte les possibilité pour gagne 
+  possibilite(){
+    // 5 possibilte pour gagner 
+    if(this.Deplacement.length >= 5){
+      var checkSet = new Set()
+      // possibilité vertical alignments
+      if(this.tabMorpion[0] && this.tabMorpion[3] && this.tabMorpion[6] && (Array.from(checkSet.add(this.tabMorpion[0]).add(this.tabMorpion[3]).add(this.tabMorpion[6])).length === 1)){
+        console.log(`joueur ${this.numeroJoueur(this.tabMorpion[0])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau si gagner
+      //horizontale 1
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if(this.tabMorpion[1] && this.tabMorpion[4] && this.tabMorpion[7] && (Array.from(checkSet.add(this.tabMorpion[1]).add(this.tabMorpion[4]).add(this.tabMorpion[7])).length === 1)){
+        console.log(`Player ${this.numeroJoueur(this.tabMorpion[1])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+      // horizontale 2
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if(this.tabMorpion[2] && this.tabMorpion[5] && this.tabMorpion[8] && (Array.from(checkSet.add(this.tabMorpion[2]).add(this.tabMorpion[5]).add(this.tabMorpion[8])).length === 1)){
+        console.log(`joueur ${this.numeroJoueur(this.tabMorpion[2])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+      // horizontale 3
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if(this.tabMorpion[0] && this.tabMorpion[1] && this.tabMorpion[2] && (Array.from(checkSet.add(this.tabMorpion[0]).add(this.tabMorpion[1]).add(this.tabMorpion[2])).length === 1)){
+        console.log(`joueur ${this.numeroJoueur(this.tabMorpion[0])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+      //VERTICAL    
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if(this.tabMorpion[3] && this.tabMorpion[4] && this.tabMorpion[5] && (Array.from(checkSet.add(this.tabMorpion[3]).add(this.tabMorpion[4]).add(this.tabMorpion[5])).length === 1)){
+        console.log(`joueur  ${this.numeroJoueur(this.tabMorpion[3])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+      //VERTICAL
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if(this.tabMorpion[6] && this.tabMorpion[7] && this.tabMorpion[8] && (Array.from(checkSet.add(this.tabMorpion[6]).add(this.tabMorpion[7]).add(this.tabMorpion[8])).length === 1)){
+        console.log(`joueur ${this.numeroJoueur(this.tabMorpion[6])} gagner!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+      //  diagonal
+      // si les casse sont rempli par les joueur alors ces gagner 
+      if((this.tabMorpion[0] && this.tabMorpion[4] && this.tabMorpion[8] && (Array.from(checkSet.add(this.tabMorpion[0]).add(this.tabMorpion[4]).add(this.tabMorpion[8])).length === 1)) || (this.tabMorpion[2] && this.tabMorpion[4] && this.tabMorpion[6] && (Array.from(checkSet.add(this.tabMorpion[2]).add(this.tabMorpion[4]).add(this.tabMorpion[6])).length === 1))){
+        console.log(`Player ${this.numeroJoueur(this.tabMorpion[4])} Wins!!`);
+        this.finJeu();
+      }
+      checkSet.clear();// effacer le tableau 
+    }
+  }
 
 }
 
