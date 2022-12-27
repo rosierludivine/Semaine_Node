@@ -70,7 +70,7 @@ class morpion { // Creation d'un class
   possibilite(){
     // 5 possibilte pour gagner 
     if(this.Deplacement.length >= 5){
-      var checkSet = new Set()
+      let checkSet = new Set()
       // possibilité vertical alignments
       if(this.tabMorpion[0] && this.tabMorpion[3] && this.tabMorpion[6] && (Array.from(checkSet.add(this.tabMorpion[0]).add(this.tabMorpion[3]).add(this.tabMorpion[6])).length === 1)){
         console.log(`joueur ${this.numeroJoueur(this.tabMorpion[0])} gagner!!`);
@@ -122,7 +122,7 @@ class morpion { // Creation d'un class
     }
   }
   mouvement(position){
-    var self = this
+    let self = this
     // check if poosition is eligible
     if((position > 9) || position < 1){
       // wrong position
@@ -142,44 +142,54 @@ class morpion { // Creation d'un class
       self.continuerJouer();
     }
   }
+  Affichage(item){
+    return item === undefined ? ' ' : item
+  }
 
-  // notify wrong moves
-  mouvementErreur(message){
-    console.log(`${arguments[0] ? arguments[0]:''}Player ${this.joueur(this.joueur)}, Your move! (position[1-9]): `)
+  joueur(plyr){
+    return plyr ? 1 : 2
+  }
+
+  numeroJoueur(char){
+    return this.joueur(char === 'X')
+  }
+
+  caractere(plyr){
+    return plyr ? 'X' : 'O'
+  }
+  
+  ecran(){
+    this.updateLayout()
+    console.log(this.tabMorpionPage);
   }
 
   mouvementDeplacement(position, player){
-    this.Deplacement.push({
+    this.Deplacement.push({ // on ajoute au tableau 
       position: position,
-      char: this.caractere(this.joueur),
-      player: this.joueur(this.joueur)
+      char: this.caractere(this.joueur),// le caractere permet de savoit le joueur 
+      player: this.joueur(this.joueur)// le joueur correspond au joueur 
     });
   }
 
   dernierMouvement(){
-    // delete character
+    // supprimer les caractere 
     if(this.Deplacement.length > 1){
-      var pos = this.Deplacement[(this.Deplacement.length - 1)].position
-      this.tabMorpion[pos] = ' '
+      var pos = this.Deplacement[(this.Deplacement.length - 1)].position // decaler la position 
+      this.tabMorpion[pos] = ' '// les remplacer par ' '
       // unregister move 
-      this.Deplacement.pop();
-      // continue play
+      this.Deplacement.pop();// permet de supprimer le dernier element du tableau 
+      // continuer a jouer 
       this.continuerJouer()
     } else {
-      console.log("Can't delete any more moves!!");
-      // continue play
-      this.continuerJouer(true); // don't change player with the next move
+      console.log("pas possible de supprimer le dernier mouvement ");
+      // continuer jouer 
+      this.continuerJouer(true); // garder le meme joueur pour la prochaine
     }
   }
-
-  processInput(moveContents){
-    var mc = new Set(moveContents);
-    this.mouvementDeplacement(mc[0], mc[1], joueur);
-  }
+ 
 
 }
-
-var game = new tabMorpion();
+let game = new tabMorpion();
 
 game.lancement();
 
