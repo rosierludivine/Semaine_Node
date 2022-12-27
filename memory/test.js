@@ -44,6 +44,7 @@ class memory { // Creation d'un class
   constructor(){
     // initiate variables
     this.memory = ['1','2','3','4','5','6','7','8'];//on créer un tableau 
+    this.randomNumber = [];
     this.memory[8] = undefined;//on marque comme quoi l'index 8 est pas défini 
     this.memoryPage = '';// le tableau de comporte rien 
     this.joueur = false; // joueur 1 correspond  (O), joueur 2 correspond (X)
@@ -63,10 +64,10 @@ class memory { // Creation d'un class
     this.memoryPage = `${this.Affichage(this.memory[0])} | ${this.Affichage(this.memory[1])} | ${this.Affichage(this.memory[2])} | ${this.Affichage(this.memory[3])}
 ---------
 ${this.Affichage(this.memory[4])} | ${this.Affichage(this.memory[5])} | ${this.Affichage(this.memory[6])} | ${this.Affichage(this.memory[7])}`;
-}//cHaque ligne correspond a une ligne du tableau 
+}//Chaque ligne correspond a une ligne du tableau 
 
   // lancement du jeu 
-  startGame(){
+  commencer(){
     this.ecran();
 
     // voir ce ca ecrit la personne 
@@ -75,6 +76,7 @@ ${this.Affichage(this.memory[4])} | ${this.Affichage(this.memory[5])} | ${this.A
       if(this.memory.length <= 9){
         // Savoir ou sela va être bouger 
         this.mouvement(parseInt(input))
+        console.log();
         // continuer a jouer
       } else {
         console.log("Game Ended!");
@@ -245,4 +247,4 @@ ${this.Affichage(this.memory[4])} | ${this.Affichage(this.memory[5])} | ${this.A
 
 var game = new memory();
 
-game.startGame();
+game.commencer();

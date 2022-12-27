@@ -6,9 +6,9 @@ class morpion { // Creation d'un class
     // exemple une class voiture: qui a comme constructeur la couleur la marque le modele ...
   constructor(){
     // initiate variables
-    this.morpion = ['1','2','3','4','5','6','7','8'];//on créer un tableau 
-    this.morpion[8] = undefined;//on marque comme quoi l'index 8 est pas défini 
-    this.morpionPage = '';// le tableau de comporte rien 
+    this.tabMorpion = [];//on créer un tableau 
+    this.tabMorpion[8] = undefined;//on marque comme quoi l'index 8 est pas défini 
+    this.tabMorpionPage = '';// le tableau de comporte rien 
     this.currentPlayer = false; // joueur 1 correspond  (O), joueur 2 correspond (X)
     this.finJeu = false;
     this.Deplacement = [];// enregidtrement des deplacements 
@@ -19,3 +19,16 @@ class morpion { // Creation d'un class
     })
 
   }
+
+    /// création du tableau 
+    nouveauTableau(){
+        this.tabMorpionPage = `${this.Affichage(this.tabMorpion[0])} | ${this.Affichage(this.tabMorpion[1])} | ${this.Affichage(this.tabMorpion[2])}
+    ---------
+    ${this.Affichage(this.tabMorpion[3])} | ${this.Affichage(this.tabMorpion[4])} | ${this.Affichage(this.tabMorpion[5])}
+    ---------
+    ${this.Affichage(this.tabMorpion[6])} | ${this.Affichage(this.tabMorpion[7])} | ${this.Affichage(this.tabMorpion[8])}`;
+    }//cHaque ligne correspond a une ligne du tableau 
+
+}
+console.log(nouveauTableau);
+
