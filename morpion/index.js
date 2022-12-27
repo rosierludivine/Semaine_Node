@@ -193,5 +193,7 @@ let game = new tabMorpion();
 
 game.lancement();
 
-
+// realiser avec un modele 
+// malade 3 jour sur 4  
+// J'ai pris lr temps de comprendre le code 
 
