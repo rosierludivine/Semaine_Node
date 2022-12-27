@@ -55,4 +55,18 @@ class morpion { // Creation d'un class
         process.exit();// quitter la page 
         return false; 
     }
+    
+    //continuer a jouer 
+  continuerJouer(){
+    this.ecran();
+    this.processGame();
+    if(!this.finJeu){
+      // switch player
+      this.joueur = arguments[0] ? this.joueur : !this.joueur;
+      console.log(`Jouer ${this.joueur(this.joueur)},(position[1-9]): `)
+    }
+  }
+
+
 }
+
