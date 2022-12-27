@@ -5,7 +5,7 @@ class morpion { // Creation d'un class
     // on peut le voir comme une grande envellope qui se créer avec plusieurs sous enveloppe 
     // exemple une class voiture: qui a comme constructeur la couleur la marque le modele ...
   constructor(){
-    // initiate variables
+    // initiate letiables
     this.tabMorpion = [];//on créer un tableau 
     this.tabMorpion[8] = undefined;//on marque comme quoi l'index 8 est pas défini 
     this.tabMorpionPage = '';// le tableau de comporte rien 
@@ -18,7 +18,7 @@ class morpion { // Creation d'un class
       output: process.stdout//données sortie 
     })
 
-  }
+    }
 
     /// création du tableau 
     nouveauTableau(){
@@ -29,6 +29,20 @@ class morpion { // Creation d'un class
     ${this.Affichage(this.tabMorpion[6])} | ${this.Affichage(this.tabMorpion[7])} | ${this.Affichage(this.tabMorpion[8])}`;
     }//cHaque ligne correspond a une ligne du tableau 
 
-}
-console.log(nouveauTableau);
+    lancement(){//lancement du jeu 
+        this.ecran();// mettre a la bonne resolution
 
+        //reprendre ce que le joueur a ecrit 
+        this.rl.on("line", (input) => {
+
+            if(this.tabMorpion.length <= 9){// le tableau est a 8 de longueur  
+              // Savoir ou sela va être bouger 
+              this.mouvement(parseInt(input))//ce que la personne a ecrit 
+              // continuer a jouer
+            } else {
+              console.log("Game Ended!");
+              this.processGame();// processus de la parti comment le joueur peut gagner 
+            }
+        })
+    }
+}
